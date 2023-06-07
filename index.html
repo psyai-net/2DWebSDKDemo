@@ -27,6 +27,7 @@
 	const ak = '*******'
 	const sk = '*******'
 	const playerElementId = 'psy-remote-container'
+    const testContent = `请注意，以上只是一些一般性的信息，无法涵盖完整的行业分析报告。要获得更详细和准确的信息，建议您查阅行业报告、研究论文以及相关基金公司的财务报告和公开信息.`
 
 	let psyClient = new PsyClient();
 	psyClient.init(userId, ak, sk, playerElementId);
@@ -37,7 +38,7 @@
 
 	function msgSubmit() {
 		console.log(`playMedia: `)
-		psyClient.playMedia(`请注意，以上只是一些一般性的信息，无法涵盖完整的行业分析报告。要获得更详细和准确的信息，建议您查阅行业报告、研究论文以及相关基金公司的财务报告和公开信息.`)
+		psyClient.playMedia(testContent)
 	}
 
 	function startSession() {

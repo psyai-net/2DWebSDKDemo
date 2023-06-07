@@ -2,12 +2,24 @@
 
 2 D human WebSDK demo 
 
+## usage
+![img.png](./assets/preview.jpg)
+
+### flow
+startSession -> send(replace with your own test content in index.html) -> stopSession (if necessary)
+
+### update test content
+
+```javascript
+const testContent = ${yourOwnTestContent} 
+```
+
 ## config
 config the ak, sk and userId in index.html
 ```javascript
-	const userId = '0086*******1904'
-	const ak = '*******'
-	const sk = '*******'
+const userId = '0086*******1904'
+const ak = '*******'
+const sk = '*******'
 ```
 
 ## build
