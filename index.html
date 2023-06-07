@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Psy WebSDK Demo</title>
+
+    <script src='https://psyai-helm-charts.oss-cn-beijing.aliyuncs.com/release/webrtc-latest.min.js'></script>
+    <script src='https://psyai-helm-charts.oss-cn-beijing.aliyuncs.com/release/bundle-latest.min.js'></script>
+
+</head>
+<body>
+<p>Psy WebSDK</p>
+
+<div class="playerWrapper">
+    <div class='player' id='psy-remote-container'></div>
+</div>
+<div class="btnLayer">
+    <button type='button' class='startSessionBtn' id='startSession' style="z-index: 2">startSession</button>
+    <button type='button' class='submitBtn' id='msgSubmit' style="z-index: 2">Send</button>
+    <button type='button' class='endSessionBtn' id='endSession' style="z-index: 2">EndSession</button>
+</div>
+
+</body>
+
+<script>
+	const userId = '0086*******1904'
+	const ak = '*******'
+	const sk = '*******'
+	const playerElementId = 'psy-remote-container'
+
+	let psyClient = new PsyClient();
+	psyClient.init(userId, ak, sk, playerElementId);
+
+	bindBtnAction('startSession', startSession);
+	bindBtnAction('msgSubmit', msgSubmit);
+	bindBtnAction('endSession', endSession);
+
+	function msgSubmit() {
+		console.log(`playMedia: `)
+		psyClient.playMedia(`请注意，以上只是一些一般性的信息，无法涵盖完整的行业分析报告。要获得更详细和准确的信息，建议您查阅行业报告、研究论文以及相关基金公司的财务报告和公开信息.`)
+	}
+
+	function startSession() {
+		console.log(`endSession `)
+		psyClient.startSession()
+			.then(data => {
+				console.log(`startSession success data: ${data}`)
+
+			})
+			.catch(err => {
+				console.log('startSession failed', err)
+			})
+	}
+
+	function endSession() {
+		console.log(`endSession `)
+		psyClient.endSession()
+	}
+
+	function bindBtnAction(id, action) {
+		let element = document.getElementById(id)
+		element.addEventListener('click', action, false)
+	}
+</script>
+
+<style>
+    body {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        justify-content: center; /* Align horizontally */
+        display: flex;
+    }
+
+    .playerWrapper {
+        display: flex;
+        justify-content: center; /* Align horizontally */
+        align-items: center; /* Align vertically */
+        width: 46vh;
+        height: 100%; /* Full height of the viewport */
+        margin: 0; /* Remove default body margin */
+        background-color: #d5d5d5;
+        z-index: -1;
+        position: absolute;
+        overflow-y: hidden !important;
+    }
+
+    .btnLayer {
+        position: absolute;
+        bottom: 30px;
+        left: 40vw;
+    }
+
+    .startSessionBtn {
+        bottom: 30px;
+        left: 45vw;
+    }
+
+    .submitBtn {
+        bottom: 30px;
+        left: 50vw;
+    }
+
+    .endSessionBtn {
+        bottom: 30px;
+        left: 55vw;
+    }
+
+</style>
+</html>
