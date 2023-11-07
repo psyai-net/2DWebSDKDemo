@@ -5,7 +5,7 @@
     <title>Psy WebSDK Demo</title>
 
     <script src='https://psyai-helm-charts.oss-cn-beijing.aliyuncs.com/release/webrtc-latest.min.js'></script>
-    <script src='https://psyai-helm-charts.oss-cn-beijing.aliyuncs.com/release/bundle-latest.min.js'></script>
+    <script src='https://psyai-cloud-render-assets.oss-cn-beijing.aliyuncs.com/0public/websdk/2dp/bundle-v1.7.min.js'></script>
 
 </head>
 <body>
@@ -28,6 +28,8 @@
 	const sk = '*******'
 	const playerElementId = 'psy-remote-container'
     const testContent = `请注意，以上只是一些一般性的信息，无法涵盖完整的行业分析报告。要获得更详细和准确的信息，建议您查阅行业报告、研究论文以及相关基金公司的财务报告和公开信息.`
+    const CONTENT_END_MARK = '[DONE]-isFinal'
+    const PLAY_MODE_STREAM = 'stream'
 
 	let psyClient = new PsyClient();
 	psyClient.init(userId, ak, sk, playerElementId);
@@ -38,7 +40,10 @@
 
 	function msgSubmit() {
 		console.log(`playMedia: `)
-		psyClient.playMedia(testContent)
+        psyClient.playMedia(testContent, PLAY_MODE_STREAM)
+        setTimeout(() => {
+            psyClient.playMedia(CONTENT_END_MARK, PLAY_MODE_STREAM)
+        }, 200)
 	}
 
 	function startSession() {
