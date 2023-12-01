@@ -19,8 +19,8 @@ config the ak, sk and userId in index.html
 ```javascript
 /* the following params are acquired from service provider, contact them if you don't have yet. */
 const userId = '0086*******1904' // your bywId instead of uid
-const ak = '*******'
-const sk = '*******'
+const ak = '*******' // your appKey
+const sk = '*******' // your accessToken
 ```
 
 ## build
