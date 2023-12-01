@@ -17,7 +17,7 @@ const testContent = ${yourOwnTestContent}
 ## config
 config the ak, sk and userId in index.html
 ```javascript
-const userId = '0086*******1904'
+const userId = '0086*******1904' // your bywId instead of uid
 const ak = '*******'
 const sk = '*******'
 ```
@@ -31,7 +31,7 @@ npm i
 ## run
 
 ```shell
-nodemon serer.js
+nodemon server.js
 ```
 
 ## test
