@@ -23,16 +23,18 @@
 </body>
 
 <script>
-	const userId = '0086*******1904'
-	const ak = '*******'
-	const sk = '*******'
-	const playerElementId = 'psy-remote-container'
+    /* the following params are acquired from service provider, contact them if you don't have yet. */
+    const bywId = '0086*******1904'
+    const appKey = '*******'
+    const accessToken = '*******'
+	
+    const playerElementId = 'psy-remote-container'
     const testContent = `请注意，以上只是一些一般性的信息，无法涵盖完整的行业分析报告。要获得更详细和准确的信息，建议您查阅行业报告、研究论文以及相关基金公司的财务报告和公开信息.`
     const CONTENT_END_MARK = '[DONE]-isFinal'
     const PLAY_MODE_STREAM = 'stream'
 
 	let psyClient = new PsyClient();
-	psyClient.init(userId, ak, sk, playerElementId);
+	psyClient.init(bywId, appKey, accessToken, playerElementId);
 
 	bindBtnAction('startSession', startSession);
 	bindBtnAction('msgSubmit', msgSubmit);
